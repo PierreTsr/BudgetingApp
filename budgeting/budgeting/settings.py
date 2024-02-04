@@ -80,6 +80,9 @@ DATABASES = {
         "OPTIONS": {
             "read_default_file": str(BASE_DIR.parent / "my.cnf"),
         },
+        "TEST": {
+            "NAME": "auto_tests",
+        },
     }
 }
 
