@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "accounts.apps.AccountsConfig",
+    "currencies.apps.CurrenciesConfig",
+    "users.apps.UsersConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -80,7 +83,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "OPTIONS": {
-            "read_default_file": str(BASE_DIR / "my.cnf"),
+            "read_default_file": str(BASE_DIR.parent / "my.cnf"),
         },
     }
 }
