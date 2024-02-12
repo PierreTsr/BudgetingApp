@@ -2,11 +2,17 @@ from pathlib import Path
 
 from currencies.models import Currency
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 from users.models import User
 
 from .utils import ofxutils
 
-AccountType = models.IntegerChoices("AccountType", "UNKNOWN BANK CREDIT CASH")
+
+class AccountType(models.IntegerChoices):
+    UNKNOWN = 1, _("Unknown")
+    BANK = 2, _("Bank Account")
+    CREDIT = 3, _("Credit Card")
+    CASH = 4, _("Cash")
 
 
 class Account(models.Model):
