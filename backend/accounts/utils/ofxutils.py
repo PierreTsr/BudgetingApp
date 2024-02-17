@@ -1,6 +1,5 @@
 import re
 from io import StringIO
-from pathlib import Path
 
 from ofxparse import OfxParser
 
@@ -17,10 +16,8 @@ class OfxData(object):
         return str(self.__dict__)
 
     @classmethod
-    def from_file(cls, filename: Path):
+    def from_file(cls, content: str):
         try:
-            with open(filename) as file:
-                content = file.read()
             content = re.sub(start_pattern, "<OFX>", content)
             ofx = OfxParser.parse(StringIO(content))
 
